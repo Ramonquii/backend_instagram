@@ -1,0 +1,11 @@
+#import UserInput from './graphql/user.graphql'
+
+type Query {
+    prueba:String
+}
+ 
+type Mutation{
+    signup(data:UserInput!):AuthToken
+    login(email:String!,password:String!):AuthToken
+}
+

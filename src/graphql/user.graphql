@@ -1,0 +1,39 @@
+input UserInput {
+    name:String!
+    user_name:String
+    email:String!
+    password:String!
+    phone:String
+    gender:Gender
+    image_url:String
+    bio:String
+}
+
+type User {
+    name:String!
+    user_name:String
+    email:String!
+    password:String!
+    phone:String
+    gender:Gender
+    image_url:String
+    bio:String
+    followers:[Follow]
+    following:[Follow]
+    is_active:Boolean
+}
+
+type Follow {
+    name:String
+    user_name:String
+}
+
+enum Gender {
+    Male
+    Female
+
+}
+
+type AuthToken {
+    token:String
+}

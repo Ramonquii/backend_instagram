@@ -1,4 +1,5 @@
 const Users =  require('../schemas/Users')
+const Posts =  require('../schemas/Posts')
 const createToken  = require('../utils/createToken')
 const comparePasswords = require('../utils/comparePasswords')
 
@@ -17,7 +18,20 @@ function signup(_,args,context,info){
         .catch((err) => { throw err })
 }
 
+function addPost(_,args,context,info){
+    if(!context.user) throw new Error("Authentication is required")
+
+    return Posts.create(args.data).then((post) => {
+        return post.toObject()
+    }).catch((err) => {throw err;})
+
+}
+
+
+
+
  module.exports = {
     signup,
-    login
+    login,
+    addPost
  }

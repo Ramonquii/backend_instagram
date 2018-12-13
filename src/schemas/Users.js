@@ -23,10 +23,6 @@ const UserSchema = new Schema({
         type:String,
         required:true
     },
-    phone:{
-        type:String,
-        unique:true
-    },
     gender:{
        type:String,
        enum:["Male","Female"] 
@@ -37,24 +33,10 @@ const UserSchema = new Schema({
     bio:{
         type:String
     },
-    followers:[
+    posts:[
         {
-            name:{
-                type:String
-            },
-            user_name:{
-                type:String
-            }   
-        }
-    ],
-    following:[
-        {
-            name:{
-                type:String
-            },
-            user_name:{
-                type:String
-            }   
+            type: Schema.Types.ObjectId,
+            ref:"posts"
         }
     ],
     is_active:{

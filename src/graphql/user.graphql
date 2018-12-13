@@ -1,32 +1,25 @@
-input UserInput {
-    name:String!
-    user_name:String
-    email:String!
-    password:String!
-    phone:String
-    gender:Gender
-    image_url:String
-    bio:String
-}
-
 type User {
     name:String!
     user_name:String
     email:String!
     password:String!
-    phone:String
     gender:Gender
     image_url:String
     bio:String
-    followers:[Follow]
-    following:[Follow]
     is_active:Boolean
 }
 
-type Follow {
-    name:String
+input UserInput {
+    name:String!
     user_name:String
+    email:String!
+    password:String!
+    gender:Gender
+    image_url:String
+    bio:String
 }
+
+
 
 enum Gender {
     Male

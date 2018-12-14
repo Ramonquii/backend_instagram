@@ -20,14 +20,18 @@ function signup(_,args,context,info){
 
 function addPost(_,args,context,info){
     if(!context.user) throw new Error("Authentication is required")
-
+    args.data.createdBy = context.user; 
     return Posts.create(args.data).then((post) => {
         return post.toObject()
     }).catch((err) => {throw err;})
 
 }
 
+function likePost(_,args,context,info){
+    if(!context.user) throw new Error("Authentication is required")
 
+
+}
 
 
  module.exports = {

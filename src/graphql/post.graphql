@@ -2,7 +2,7 @@
 #import Comment from './comment.graphql'
 
 type Post {
-    createdBy:String
+    createdBy:User
     description:String
     image_url:String
     liked_by:[User]
